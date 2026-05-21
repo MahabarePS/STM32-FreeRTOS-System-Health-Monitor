@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;TaskScheduler_HealthMonitor&apos; to &apos;smart-task-scheduler&apos;" description="Rename resource &apos;TaskScheduler_HealthMonitor&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/TaskScheduler_HealthMonitor" name="smart-task-scheduler" stamp="1779290683558" updateReferences="true"/>
+</session>
