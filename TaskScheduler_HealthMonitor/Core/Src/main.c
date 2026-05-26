@@ -21,6 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include<string.h>
 #include "stm32f1xx_hal.h"
 /* USER CODE END Includes */
 
@@ -36,8 +37,8 @@ char msg[] = "Hello from STM32\r\n";
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define LED_PORT GPIOC
-#define LED_PIN GPIO_PIN_13
+#define LED_PORT GPIOB
+#define LED_PIN GPIO_PIN_0
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -63,7 +64,7 @@ static void MX_ADC1_Init(void);
 void LED_init(void){
 	GPIO_InitTypeDef GPIOstruct={0};
 	//assign the clock to the LED PORT
-	__HAL_RCC_GPIOC_CLK_ENABLE();
+	__HAL_RCC_GPIOB_CLK_ENABLE();
 	GPIOstruct.Pin=LED_PIN;
 	GPIOstruct.Mode=GPIO_MODE_OUTPUT_PP;
 	GPIOstruct.Pull=GPIO_NOPULL;
@@ -113,7 +114,7 @@ int main(void)
   {
 	 HAL_GPIO_TogglePin(LED_PORT,LED_PIN);
 	 HAL_Delay(100);
-	 HAL_UART_Transmit(&huart1,(uint8_t*)msg,strlen(msg),HAL_MAX_DELAY);
+	 //HAL_UART_Transmit(&huart1,(uint8_t*)msg,strlen(msg),HAL_MAX_DELAY);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -139,7 +140,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -154,7 +155,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
     Error_Handler();
   }
