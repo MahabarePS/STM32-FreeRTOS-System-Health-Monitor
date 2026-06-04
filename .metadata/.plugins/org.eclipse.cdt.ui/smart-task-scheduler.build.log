@@ -1,10 +1,10 @@
-16:23:05 **** Incremental Build of configuration Debug for project smart-task-scheduler ****
+01:39:34 **** Incremental Build of configuration Debug for project smart-task-scheduler ****
 make -j8 all 
 arm-none-eabi-size  smart-task-scheduler.elf 
    text	   data	    bss	    dec	    hex	filename
-   8568	     12	   1764	  10344	   2868	smart-task-scheduler.elf
+   9212	     32	   1760	  11004	   2afc	smart-task-scheduler.elf
 Finished building: default.size.stdout
  
 
-16:23:05 Build Finished. 0 errors, 0 warnings. (took 514ms)
+01:39:35 Build Finished. 0 errors, 0 warnings. (took 1s.225ms)
 
